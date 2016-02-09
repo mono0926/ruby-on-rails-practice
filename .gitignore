@@ -2,7 +2,9 @@
 capybara-*.html
 .rspec
 /log
+baukis/log
 /tmp
+/baukis/tmp
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /public/system
