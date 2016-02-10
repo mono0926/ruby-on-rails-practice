@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210014552) do
+ActiveRecord::Schema.define(version: 20160210025527) do
+
+  create_table "administrators", force: :cascade do |t|
+    t.string   "email",           limit: 255,                 null: false
+    t.string   "email_for_index", limit: 255,                 null: false
+    t.string   "hashed_password", limit: 255
+    t.boolean  "suspended",                   default: false, null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
 
   create_table "staff_members", force: :cascade do |t|
     t.string   "email",            limit: 255,                 null: false
@@ -27,5 +36,7 @@ ActiveRecord::Schema.define(version: 20160210014552) do
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
   end
+
+  add_index "staff_members", ["email_for_index"], name: "index_staff_members_on_email_for_index", unique: true, using: :btree
 
 end
