@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   layout :set_layout
 
+  class Forbidden < ActionController::ActionControllerError; end
+  class InAddressRejected < ActionController::ActionControllerError; end
+
+  rescue_from Exception, with: :rescue500
+  rescue_from Forbidden, with: :rescue403
+  rescue_from InAddressRejected, with: :rescue403
+  rescue_from ActionController::RoutingError, with: :rescue404
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue404
+
   private
   def set_layout
     if params[:controller].match(%r{\A(staff|admin|customer)})
@@ -11,5 +20,20 @@ class ApplicationController < ActionController::Base
     else
       'customer'
     end
+  end
+
+  def rescue500(e)
+    @exception = e
+    render 'errors/internal_server_error', status: 500
+  end
+
+  def rescue403(e)
+    @exception = e
+    render 'errors/forbidden', status: 403
+  end
+
+  def rescue404(e)
+    @exception = e
+    render 'errors/not_found', status: 403
   end
 end
