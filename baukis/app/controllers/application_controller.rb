@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   layout :set_layout
 
-  private
+  class Forbidden < ActionController::ActionControllerError; end
+  class InAddressRejected < ActionController::ActionControllerError; end
+
+  include ErrorHandlers if Rails.env.production?
+
   def set_layout
     if params[:controller].match(%r{\A(staff|admin|customer)})
       Regexp.last_match[1]
@@ -12,4 +16,5 @@ class ApplicationController < ActionController::Base
       'customer'
     end
   end
+
 end
