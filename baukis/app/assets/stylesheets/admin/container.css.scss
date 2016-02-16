@@ -1,5 +1,5 @@
-@import "colors";
-@import "dimensions";
+@import 'colors';
+@import 'dimensions';
 
 div#wrapper {
   div#container {
@@ -8,7 +8,7 @@ div#wrapper {
       padding: $moderate * 1.5 $moderate;
       font-size: $large;
       font-weight: normal;
-      background-color: $very_dark_mazenda;
+      background-color: $very_dark_magenta;
       color: $light_gray;
     }
   }
