@@ -34,6 +34,8 @@ module Baukis
 
     # config.action_controller.permit_all_parameters = true
 
+    # config.quiet_assets = false
+
     config.generators do |g|
       g.helper false
       g.assets false
