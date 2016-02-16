@@ -1,11 +1,10 @@
 require 'rails_helper'
 
+describe Staff::AccountsController, 'ログイン前' do
+  it_behaves_like 'a protected singular staff controller'
+end
+
 describe Staff::AccountsController do
-
-  describe Staff::AccountsController, 'ログイン前' do
-    it_behaves_like 'a protected singular staff controller'
-  end
-
   describe '#update' do
     let(:params_hash) { attributes_for(:staff_member) }
     let(:staff_member) { create(:staff_member) }
@@ -25,7 +24,7 @@ describe Staff::AccountsController do
     example '例外ActionController::ParameterMissingが発生' do
       bypass_rescue
       expect { patch :update, id: staff_member.id }.
-          to raise_error(ActionController::ParameterMissing)
+        to raise_error(ActionController::ParameterMissing)
     end
 
     example 'end_dateの値は書き換え不可' do

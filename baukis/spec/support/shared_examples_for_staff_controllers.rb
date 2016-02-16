@@ -1,4 +1,3 @@
-require 'spec_helper'
 shared_examples 'a protected staff controller' do
   describe '#index' do
     example 'ログインフォームにリダイレクト' do

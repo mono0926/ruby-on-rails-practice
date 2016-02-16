@@ -10,6 +10,7 @@ describe Admin::StaffMembersController do
 
   before do
     session[:administrator_id] = administrator.id
+    session[:last_access_time] = 1.second.ago
   end
 
   describe '#create' do
@@ -21,7 +22,7 @@ describe Admin::StaffMembersController do
     example '例外ActionController::ParameterMissingが発生' do
       bypass_rescue
       expect { post :create }.
-          to raise_error(ActionController::ParameterMissing)
+        to raise_error(ActionController::ParameterMissing)
     end
   end
 
