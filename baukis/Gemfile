@@ -49,6 +49,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'bcrypt'
 gem 'nokogiri'
 gem 'rails-i18n'
+gem 'kaminari'
 group :test do
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
