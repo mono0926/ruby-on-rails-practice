@@ -1,5 +1,5 @@
-@import "colors";
-@import "dimensions";
+@import 'colors';
+@import 'dimensions';
 
 html, body {
   margin: 0;
@@ -8,24 +8,20 @@ html, body {
 }
 div#wrapper {
   position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   min-height: 100%;
   margin: 0 auto;
   padding-bottom: ($wide + $moderate) * 2 + $standard_line_height;
   background-color: $gray;
 }
-
 header {
   padding: $moderate;
   background-color: $dark_yellow;
   color: $very_light_gray;
-  span.logo_mark {
+  span.logo-mark {
     font-weight: bold;
   }
 }
-
 footer {
   bottom: 0;
   position: absolute;

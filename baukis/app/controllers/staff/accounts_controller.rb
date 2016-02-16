@@ -21,11 +21,8 @@ class Staff::AccountsController < Staff::Base
   private
   def staff_member_params
     params.require(:staff_member).permit(
-                                     :email,
-                                     :family_name,
-                                     :given_name,
-                                     :family_name_kana,
-                                     :given_name_kana
+      :email, :family_name, :given_name,
+      :family_name_kana, :given_name_kana
     )
   end
 end

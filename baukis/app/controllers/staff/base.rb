@@ -1,12 +1,13 @@
 class Staff::Base < ApplicationController
   before_action :authorize
   before_action :check_account
+  before_action :check_timeout
 
   private
   def current_staff_member
     if session[:staff_member_id]
       @current_staff_member ||=
-          StaffMember.find_by(id: session[:staff_member_id])
+        StaffMember.find_by_id(session[:staff_member_id])
     end
   end
 
@@ -14,7 +15,7 @@ class Staff::Base < ApplicationController
 
   def authorize
     unless current_staff_member
-      flash.alert = '職員としてログインしてください'
+      flash.alert = '職員としてログインしてください。'
       redirect_to :staff_login
     end
   end

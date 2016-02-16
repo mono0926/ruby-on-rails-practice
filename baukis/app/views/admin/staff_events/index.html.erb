@@ -22,7 +22,8 @@
       <th>日時</th>
     </tr>
     <% @events.each do |event| %>
-        <%= StaffEventPresenter.new(event, self).table_row %>
+      <%= StaffEventPresenter.new(event, self).table_row %>
+    <% end %>
     <% if @events.empty? %>
       <tr>
         <%= content_tag(:td, '記録がありません',

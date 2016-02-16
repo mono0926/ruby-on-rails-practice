@@ -28,7 +28,7 @@ class Staff::SessionsController < Staff::Base
         redirect_to :staff_root
       end
     else
-      flash.now.alert = 'メールアドレスまたはパスワードが正しくありません'
+      flash.now.alert = 'メールアドレスまたはパスワードが正しくありません。'
       render action: 'new'
     end
   end
