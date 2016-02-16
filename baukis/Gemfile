@@ -53,7 +53,7 @@ gem 'kaminari'
 gem 'quiet_assets'
 gem 'date_validator'
 gem 'email_validator'
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '~> 4.2.1'
 group :test do
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
